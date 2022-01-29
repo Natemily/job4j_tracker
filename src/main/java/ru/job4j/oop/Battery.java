@@ -15,6 +15,4 @@ public class Battery {
         another.load = another.load + this.load;
         this.load = 0;
     }
-
-
 }
