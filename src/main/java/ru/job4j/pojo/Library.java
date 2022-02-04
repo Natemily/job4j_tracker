@@ -28,7 +28,7 @@ public class Library {
         System.out.println();
         System.out.println("Вывод книг с названием Clean code");
         for (int i = 0; i < book.length; i++) {
-            if (book[i].getName().equals("Clean code")) {
+            if ("Clean code".equals(book[i].getName())) {
                 System.out.println("В книге " + book[i].getName() + " " + book[i].getPageCount() + " страниц.");
             }
         }
