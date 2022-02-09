@@ -59,8 +59,8 @@ public class Tracker {
         int i = indexOf(id);
         boolean rsl = i != -1;
         if (rsl) {
-            items[i].setId(id);
             items[i] = item;
+            items[i].setId(id);
         }
         return rsl;
     }
@@ -69,7 +69,7 @@ public class Tracker {
         int i = indexOf(id);
         boolean rsl = i != -1;
         if (rsl) {
-            System.arraycopy(items, (i + 1), items, i, (size - i - 1));
+            System.arraycopy(items, i + 1, items, i, size - i - 1);
             items[size - 1] = null;
             size--;
         }
