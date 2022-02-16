@@ -6,6 +6,7 @@ public class ShowAllAction implements UserAction {
     public ShowAllAction(Output out) {
         this.out = out;
     }
+
     @Override
     public String name() {
         return "Show all items";
