@@ -6,9 +6,11 @@ public class FindEl {
         for (int i = 0; i < value.length; i++) {
             if (value[i] != null && value[i].equals(key)) {
                 rsl = i;
-            } else {
-                throw new ElementNotFoundException("Этого элемента нет в массиве");
+                break;
             }
+        }
+        if (rsl == -1) {
+            throw new ElementNotFoundException("Этого элемента нет в массиве");
         }
         return rsl;
     }
