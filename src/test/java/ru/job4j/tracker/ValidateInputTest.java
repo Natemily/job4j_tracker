@@ -2,15 +2,10 @@ package ru.job4j.tracker;
 
 import junit.framework.Assert;
 import org.junit.Test;
-
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
-
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
 public class ValidateInputTest {
-    private ByteArrayOutputStream output = new ByteArrayOutputStream();
 
     @Test
     public void whenInvalidInput() {
