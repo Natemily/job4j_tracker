@@ -9,14 +9,13 @@ public class BankService {
     private final Map<User, List<Account>> users = new HashMap<>();
 
     public void addUser(User user) {
-        if (!users.containsKey(user)) {
-            users.put(user, new ArrayList<>());
-        }
+        users.putIfAbsent(user, new ArrayList<>());
     }
 
     public void addAccount(String passport, Account account) {
-        if (!users.get(findByPassport(passport)).contains(account)) {
-            users.get(findByPassport(passport)).add(account);
+        User user = findByPassport(passport);
+        if (user != null && !users.get(user).contains(account)) {
+            users.get(user).add(account);
         }
     }
 
@@ -25,6 +24,7 @@ public class BankService {
         for (User key : users.keySet()) {
             if (key.getPassport().equals(passport)) {
                 rsl = key;
+                break;
             }
         }
         return rsl;
@@ -32,10 +32,12 @@ public class BankService {
 
     public Account findByRequisite(String passport, String requisite) {
         Account rsl = null;
-        if (findByPassport(passport) != null) {
-            for (Account value : users.get(findByPassport(passport))) {
+        User user = findByPassport(passport);
+        if (user != null) {
+            for (Account value : users.get(user)) {
                 if (value.getRequisite().equals(requisite)) {
                     rsl = value;
+                    break;
                 }
             }
         }
@@ -47,7 +49,7 @@ public class BankService {
         boolean rsl = false;
         Account srcAccount = findByRequisite(srcPassport, srcRequisite);
         Account destAccount = findByRequisite(destPassport, destRequisite);
-        if (srcAccount != null && srcAccount.getBalance() >= amount) {
+        if (srcAccount != null && destAccount != null && srcAccount.getBalance() >= amount) {
             srcAccount.setBalance(srcAccount.getBalance() - amount);
             destAccount.setBalance(destAccount.getBalance() + amount);
             rsl = true;
