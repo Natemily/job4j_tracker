@@ -1,6 +1,7 @@
 package ru.job4j.tracker;
 
 import junit.framework.TestCase;
+import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -11,8 +12,9 @@ import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
 
-public class ItemAscByNameTest extends TestCase {
+public class ItemAscByNameTest {
 
+    @Test
     public void testCompare() {
         Output out = new StubOutput();
         Tracker tracker = new Tracker();
