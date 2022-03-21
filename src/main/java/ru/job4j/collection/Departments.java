@@ -9,13 +9,8 @@ public class Departments {
         for (String value : deps) {
             String start = "";
             for (String el : value.split("/")) {
-                if (start.equals("")) {
-                    tmp.add(el);
-                    start = el;
-                } else {
-                    tmp.add(start + "/" + el);
-                    start = el;
-                }
+                boolean a = start.equals("") ? tmp.add(el) : tmp.add(start + "/" + el);
+                start = el;
             }
         }
         return new ArrayList<>(tmp);
