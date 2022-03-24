@@ -26,7 +26,6 @@ public class FunctionalInterfaces {
         Function<String, String> func = s -> s.toUpperCase();
         List<String> strings = List.of("one", "two", "three", "one", "two", "three");
         for (String s : strings) {
-            func.apply(s);
             con.accept(func.apply(s));
         }
     }
