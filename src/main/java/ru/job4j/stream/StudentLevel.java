@@ -10,7 +10,7 @@ public class StudentLevel {
     public static List<Students> levelOf(List<Students> students, int bound) {
         return students.stream()
                 .filter(st -> st != null)
-                .sorted((left, right) -> right.getSurname().compareTo(left.getSurname()))
+                .sorted(Comparator.reverseOrder())
                 .takeWhile(st -> st.getScore() > bound)
                 .collect(Collectors.toList());
     }

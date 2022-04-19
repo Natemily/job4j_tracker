@@ -30,7 +30,6 @@ public class StudentLevelTest {
         assertThat(StudentLevel.levelOf(input, 100), is(expected));
     }
 
-    @SuppressWarnings("checkstyle:WhitespaceAfter")
     @Test
     public void whenHasNull() {
         List<Students> input = new ArrayList<>();
